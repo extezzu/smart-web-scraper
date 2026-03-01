@@ -20,7 +20,7 @@ A production-ready web scraper with YAML-based configuration, advanced retry log
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/smart-web-scraper.git
+git clone https://github.com/extezzu/smart-web-scraper.git
 cd smart-web-scraper
 pip install -e ".[dev]"
 ```
