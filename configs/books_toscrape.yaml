@@ -1,0 +1,51 @@
+target:
+  base_url: "https://books.toscrape.com/"
+  start_path: "catalogue/page-1.html"
+  selectors:
+    item: "article.product_pod"
+    title: "h3 a"
+    title_attribute: "title"
+    price: ".price_color"
+    rating: ".star-rating"
+    availability: ".instock"
+    link: "h3 a"
+    link_attribute: "href"
+    image: ".image_container img"
+    image_attribute: "src"
+  detail_selectors:
+    title: ".product_main h1"
+    price: ".product_main .price_color"
+    description: "#product_description + p"
+    upc: ".table-striped td:nth-of-type(1)"
+    availability: ".availability"
+    rating: ".product_main .star-rating"
+  pagination:
+    next_selector: "li.next a"
+    next_attribute: "href"
+    page_info_selector: "li.current"
+  max_pages: 0  # 0 = all pages
+
+request:
+  delay: 1.0
+  timeout: 30
+  max_retries: 3
+  retry_base_delay: 1.0
+  follow_detail_links: false
+  headers:
+    Accept: "text/html,application/xhtml+xml"
+    Accept-Language: "en-US,en;q=0.9"
+  proxy: null
+
+output:
+  format: "csv"
+  directory: "output"
+  filename: "books"
+  include_timestamp: true
+
+logging:
+  level: "INFO"
+  file: null
+
+state:
+  enabled: true
+  file: ".scraper_state.json"
